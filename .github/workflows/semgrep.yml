@@ -12,7 +12,7 @@ on:
   - cron: 45 18 * * *
 name: Semgrep
 jobs:
-  semgrep:
+  build:
     name: semgrep/ci
     runs-on: ubuntu-20.04
     env:
@@ -20,5 +20,6 @@ jobs:
     container:
       image: returntocorp/semgrep
     steps:
+    - run: npm install
     - uses: actions/checkout@v3
     - run: semgrep ci
